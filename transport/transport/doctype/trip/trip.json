@@ -513,7 +513,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2018-02-09 23:12:37.136129", 
+ "modified": "2018-02-09 23:15:09.432919", 
  "modified_by": "Administrator", 
  "module": "Transport", 
  "name": "Trip", 
@@ -547,6 +547,7 @@
  "show_name_in_global_search": 0, 
  "sort_field": "modified", 
  "sort_order": "DESC", 
+ "title_field": "customer", 
  "track_changes": 1, 
  "track_seen": 0
 }
