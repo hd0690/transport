@@ -28,34 +28,6 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Item",
-				},
-				{
-					"type": "doctype",
-					"name": "Customer",
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier",
-				},
-				{
-					"type": "doctype",
-					"name": "Sales Partner",
-				},
-				{
-					"type": "doctype",
-					"name": "Address",
-				},
-				{
-					"type": "doctype",
-					"name": "Contact",
-				},
-				{
-					"type": "doctype",
-					"name": "Part Creation Tool",
-				},
-				{
-					"type": "doctype",
 					"name": "Truck Model",
 				},
 				{
@@ -70,7 +42,6 @@ def get_data():
 					"type": "doctype",
 					"name": "Truck Part Company",
 				},
-
 			]
 		},
 		{
