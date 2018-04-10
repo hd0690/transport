@@ -15,6 +15,12 @@ frappe.query_reports["Truck wise maintenance"] = {
 			"label": __("To Date"),
 			"fieldtype": "Date",
 			"default": frappe.defaults.get_user_default("year_end_date"),
-		}
+		},
+		{
+			"fieldname": "truck_no",
+			"label": __("Truck No"),
+			"fieldtype": "Link",
+			"options": "Truck Master"
+		},
 	]
 }

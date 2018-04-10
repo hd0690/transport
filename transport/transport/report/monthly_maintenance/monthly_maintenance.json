@@ -8,7 +8,7 @@
  "idx": 0, 
  "is_standard": "Yes", 
  "letter_head": "Agarwal FC", 
- "modified": "2018-01-01 13:53:27.440145", 
+ "modified": "2018-03-22 13:40:40.314193", 
  "modified_by": "Administrator", 
  "module": "Transport", 
  "name": "Monthly Maintenance", 
@@ -22,6 +22,9 @@
   }, 
   {
    "role": "System Manager"
+  }, 
+  {
+   "role": "Fleet User"
   }
  ]
 }

@@ -603,11 +603,11 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2018-02-27 15:21:40.355205", 
+ "modified": "2018-03-11 14:29:40.974306", 
  "modified_by": "Administrator", 
  "module": "Transport", 
  "name": "Truck Papers", 
- "name_case": "", 
+ "name_case": "Title Case", 
  "owner": "Administrator", 
  "permissions": [
   {
@@ -719,6 +719,7 @@
  "sort_field": "modified", 
  "sort_order": "DESC", 
  "timeline_field": "truck_no", 
+ "title_field": "truck_no", 
  "track_changes": 1, 
  "track_seen": 0
 }

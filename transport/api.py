@@ -1,5 +1,7 @@
 import frappe
-from frappe import msgprint, _, db
+from frappe import _, msgprint, db, get_list, delete_doc, get_doc
+from frappe.utils import get_url_to_form
+
 
 @frappe.whitelist()
 def payment_on_submit(self, method):
@@ -15,7 +17,6 @@ def pi_on_cancel(self, method):
 	
 def create_part_tool(self, method):
 	parts = []
-	url = "http://erp.agarwallogistics.net/desk#Form/Part%20Creation%20Tool/"
 	for row in self.items:
 		if row.item_group == "Truck Part":
 			part_tool = frappe.new_doc("Part Creation Tool")
@@ -28,31 +29,25 @@ def create_part_tool(self, method):
 			part_tool.purchase_date = self.posting_date
 			part_tool.purchase_rate = row.rate
 			part_tool.save()
-			frappe.db.commit()
-			link = "<a href="+url+""+part_tool.name+">"+row.item_code+"</a>"
-			parts.append(link)
+			db.commit()
+			link = get_url_to_form("Part Creation Tool", part_tool.name)
+			parts.append("<b><a href='{0}'>{1}</a></b>".format(link.replace('localhost', 'localhost:8081'),row.item_code))
 			
 	if parts:
 		msgprint(_("Part Creation Tool updated for parts '%s'. Please submit the document to create parts."%(",".join(parts))))
 
 
 def cancel_part_tool(self, method):
-	result = frappe.db.sql("""
-		SELECT 
-			name as "Name"
-		FROM
-			`tabPart Creation Tool`
-		WHERE
-			purchase_invoice = '%s'"""%self.name, as_dict=True)
-			
+	result = get_list("Part Creation Tool", filters={'purchase_invoice': self.name}, fields='name')
+				
 	for row in result:
-		frappe.delete_doc("Part Creation Tool", row["Name"])
+		delete_doc("Part Creation Tool", row.name)
 			
 #Update PO payments on Submit
 def po_payments(self, method):
 	for row in self.references:
 		if row.reference_doctype == "Purchase Order":
-			target_po = frappe.get_doc("Purchase Order", row.reference_name)
+			target_po = get_doc("Purchase Order", row.reference_name)
 			
 			target_po.append("payments", {
 				"reference_date": self.reference_date,
@@ -63,4 +58,4 @@ def po_payments(self, method):
 				"difference_amount" : self.difference_amount
 			})
 		target_po.save()
-		frappe.db.commit()
+		db.commit()

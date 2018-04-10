@@ -18,30 +18,6 @@ def get_data():
 					"type": "doctype",
 					"name": "Khalasi Master",
 				},
-				{
-					"type": "doctype",
-					"name": "Truck Parts Inventory",
-				},
-				{
-					"type": "doctype",
-					"name": "Place",
-				},
-				{
-					"type": "doctype",
-					"name": "Truck Model",
-				},
-				{
-					"type": "doctype",
-					"name": "Truck Type",
-				},
-				{
-					"type": "doctype",
-					"name": "Truck Manufacturer",
-				},
-				{
-					"type": "doctype",
-					"name": "Truck Part Company",
-				},
 			]
 		},
 		{
@@ -59,11 +35,11 @@ def get_data():
 					"type": "doctype",
 					"name": "Trip"
 				},
+
 				{
 					"type": "doctype",
-					"name": "Maintenance Log"
+					"name": "Place"
 				},
-
 			]
 		},
 		{
@@ -75,18 +51,22 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Insurance Companies"
-				},
-				{
-					"type": "doctype",
 					"name": "Truck Papers"
 				},
 
 			]
 		},
 		{
-			"label": _("Reports"),
+			"label": _("Maintenance"),
 			"items": [
+				{
+					"type": "doctype",
+					"name": "Maintenance Log"
+				},
+				{
+					"type": "doctype",
+					"name": "Truck Parts Inventory",
+				},
 				{
 					"type": "report",
 					"name": "Monthly Maintenance",
